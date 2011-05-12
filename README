@@ -1,0 +1,18 @@
+Skittish Tree
+by Martin Bravo <http://www.bravomartin.cl>
+Based on code from Daniel Shifmann's Recursive Tree
+thanks to Jer Thorp's Sperical Coordinates Tutorial that helped a lot in the 3D version of the tree program.
+Daniel Shiffman <http://www.shiffman.net>
+Jer Thorp http://blog.blprnt.com/blog/blprnt/processing-tutorial-spherical-coordinates
+
+
+
+the Processing project requires minim and toxiclibs to be installed in the compu
+ter running it.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+Skittish is a tree that has (relatively) normal behaviors in a quiet atmosphere. As soon as someone makes noise, it goes away of its nature and starts behaving like an skittish animal. For example if one screams at it really loud, it will shake violently and drop all of its leaves. It would go running if it could.
+
+the Processing project requires minim and toxiclibs to be installed in the computer running it.
+
