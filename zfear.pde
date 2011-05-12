@@ -1,8 +1,10 @@
 class Fear {
 
   AudioInput in;
-  AudioPlayer[] susto = new AudioPlayer[5];
-  AudioPlayer[] ramas = new AudioPlayer[3];
+  AudioPlayer[] susto1 = new AudioPlayer[3];
+  AudioPlayer[] susto2 = new AudioPlayer[3];
+  AudioPlayer[] susto3 = new AudioPlayer[3];
+
   float average = 0;
   ConstantForceBehavior fear;
   Vec3D f;
@@ -17,12 +19,13 @@ class Fear {
     in = minim.getLineIn(Minim.STEREO, 512);
 
     // load files
-    for (int i = 0; i < 5; i++) {
-      susto[i] = minim.loadFile("susto"+i+".wav", 2048);
-    }
     for (int i = 0; i < 3; i++) {
-      ramas[i] = minim.loadFile("ramas"+i+".wav", 2048);
+      susto1[i] = minim.loadFile("susto_nivel1-"+i+".wav", 2048);
+      susto2[i] = minim.loadFile("susto_nivel2-"+i+".wav", 2048);
+      susto3[i] = minim.loadFile("susto_nivel3-"+i+".wav", 2048);
+      susto3[i].setGain(10);
     }
+    
   }
 
   void update() {
@@ -45,31 +48,36 @@ class Fear {
     fear.setForce(f.scale(sc));
     println (sc);
 
-    if (sc > 10000) {
-      t[0].fall();
-      if (!susto[0].isPlaying() && !susto[1].isPlaying() 
-        && !susto[2].isPlaying() && !susto[3].isPlaying() && !susto[4].isPlaying() ) {  
-        susto[int(random(5))].play();
-      }
-      if (sc > 30000) {
-        t[0].fall();
-        if (!ramas[0].isPlaying() && !ramas[1].isPlaying() 
-          && !ramas[2].isPlaying()) {  
-          susto[int(random(3))].play();
-        }
+    if (sc > 25000) {
+      if (!susto1[0].isPlaying() && !susto1[1].isPlaying() && !susto1[2].isPlaying() ) {  
+        susto1[int(random(3))].play();
       }
     }
-
-    for (int i = 0; i < 5; i++) {
-      if (susto[i].length() == susto[i].position()) {
-        susto[i].rewind();
+    if (sc > 40000) {
+      t[0].fall(.03);
+      if (!susto2[0].isPlaying() && !susto2[1].isPlaying() && !susto2[2].isPlaying() ) {  
+        susto2[int(random(3))].play();
       }
-      for (int j = 0; j < 3; j++) {
-        if (ramas[j].length() == ramas[j].position()) {
-          ramas[j].rewind();
-        }
-        }
+    }
+    if (sc > 55000) {
+      t[0].fall(.2);
+      if (!susto3[0].isPlaying() && !susto3[1].isPlaying() && !susto3[2].isPlaying() ) {  
+        susto3[int(random(3))].play();
+      }
+    }
+  text(sc, -300,-200);
+
+    for (int i = 0; i < 3; i++) {
+      if (susto1[i].length() == susto1[i].position()) {
+        susto1[i].rewind();
+      }
+      if (susto2[i].length() == susto2[i].position()) {
+        susto2[i].rewind();
+      }
+      if (susto3[i].length() == susto3[i].position()) {
+        susto3[i].rewind();
       }
     }
   }
+}
 

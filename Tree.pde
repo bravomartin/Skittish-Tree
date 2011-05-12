@@ -75,10 +75,10 @@ class Tree {
     }
   }
 
-  void fall() {
+  void fall(float j) {
     for (int i = leaves.size()-1; i >= 0;  i--) {
       Leaf leaf = (Leaf) leaves.get(i);
-      if (random(1) < .1) {
+      if (random(1) < j) {
         leaf.fall();
       }
     }

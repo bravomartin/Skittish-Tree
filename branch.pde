@@ -177,10 +177,10 @@ class Branch {
     float chanceL,chanceR, chanceF, chanceB;
  
    
-    chanceL = map(constrain(theta+180,85,180),5,180,.99,.3);
+    chanceL = map(constrain(theta+180,85,180),85,180,.99,.3);
     chanceR = map(constrain(theta+180,0,95),95,0,.99,.3);
      
-    chanceB = map(constrain(phi+180,85,180),5,180,.99,.3);
+    chanceB = map(constrain(phi+180,85,180),85,180,.99,.3);
     chanceF = map(constrain(phi+180,0,95),95,0,.99,.3);
     
     
